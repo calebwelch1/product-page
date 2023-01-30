@@ -2,14 +2,14 @@
 <template>
   <main>
     <div
-    v-for="item in this.items"
-    :key="item"
+    v-for="item in items.products"
+    :key="item.id"
     >
     <p>{{ item.title }}</p>
     <p>{{ item.brand }}</p>
-    <!-- <img
+    <img
     :src="item.images[0]"
-    /> -->
+    />
     <p>{{ item.smartphones }}</p>
     <p>{{ item.description }}</p>
     <p>${{ item.price }}</p>
