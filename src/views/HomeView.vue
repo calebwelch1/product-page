@@ -4,15 +4,23 @@
     <div
     v-for="item in items.products"
     :key="item.id"
+    style="border: 1px solid white;"
     >
-    <p>{{ item.title }}</p>
-    <p>{{ item.brand }}</p>
-    <img
-    :src="item.images[0]"
-    />
-    <p>{{ item.smartphones }}</p>
-    <p>{{ item.description }}</p>
-    <p>${{ item.price }}</p>
+    <div class="flex-row">
+      <div style="border 1px solid white; padding: 1rem;">
+        <img
+        :src="item.images[0]"
+        style="max-height: 14rem; max-width: 18rem;"
+        />
+    </div>
+      <div>
+        <p>{{ item.title }}</p>
+        <p>{{ item.brand }}</p>
+        <p>{{ item.smartphones }}</p>
+        <p>{{ item.description }}</p>
+        <p>${{ item.price }}</p>
+      </div>
+  </div>
   </div>
   </main>
 </template>
@@ -23,8 +31,13 @@ import axios from 'axios'
 // "price": 549, "discountPercentage": 12.96, "rating": 4.69, "stock": 94, "brand": "Apple",
 // "category": "smartphones", "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
 // "images": [ "https://i.dummyjson.com/data/products/1/1.jpg", "https://i.dummyjson.com/data/products/1/2.jpg", "https://i.dummyjson.com/data/products/1/3.jpg", "https://i.dummyjson.com/data/products/1/4.jpg", "https://i.dummyjson.com/data/products/1/thumbnail.jpg" ] }'
+// const MyCard = app.component(Card);
 
 export default {
+  // components: {
+  //   // shorthand
+  //   Card,
+  // },
   data() {
     return {
       items: [],
@@ -52,6 +65,10 @@ onMounted(() => {
   font-family: 'Comfortaa', 'Avenir', 'Arial', 'sans-serif' !important
 }
 
+main {
+  overflow-y: scroll;
+
+}
 body{
   margin:0 !important;
 }
@@ -65,5 +82,19 @@ body{
 }
 .hi{
   color:black;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media (max-width: 900px) {
+  .flex-row {
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  }
 }
 </style>

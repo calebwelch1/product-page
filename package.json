@@ -10,6 +10,7 @@
   "dependencies": {
     "@grafana/ui": "^9.3.6",
     "axios": "^1.2.6",
+    "element-plus": "^2.2.29",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
