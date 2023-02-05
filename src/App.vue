@@ -6,6 +6,9 @@ import { ref } from 'vue'
     Menu as IconMenu,
     Location,
     Setting,
+    HomeFilled,
+    Shop,
+    Avatar
   } from '@element-plus/icons-vue'
 
   const isCollapse = ref(true)
@@ -32,28 +35,61 @@ import { ref } from 'vue'
     >
       <!-- this.$router.push('UIPortfolio') -->
     <el-switch v-model="isCollapse" />
-      <el-menu-item index="1" @click="$router.push('Profile')">
-        <el-icon><icon-menu /></el-icon>
-        <template #title>Navigator One</template>
+      <el-menu-item index="1" @click="$router.push('/')">
+        <el-icon :size="30"><HomeFilled /></el-icon>
+        <template #title>Home</template>
       </el-menu-item>
-      <el-menu-item index="2">
-        <el-icon><icon-menu /></el-icon>
-        <template #title>Navigator Two</template>
+      <el-menu-item index="2"  @click="$router.push('Dashboard')">
+        <el-icon :size="30"><icon-menu /></el-icon>
+        <template #title>Dashboard</template>
       </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <el-icon><document /></el-icon>
-        <template #title>Navigator Three</template>
+      <el-menu-item index="3"  @click="$router.push('Shop')">
+        <el-icon :size="30"><Shop /></el-icon>
+        <template #title>Shop</template>
       </el-menu-item>
       <el-menu-item index="4">
-        <el-icon><setting /></el-icon>
-        <template #title>Navigator Four</template>
+        <el-icon :size="30"><setting /></el-icon>
+        <template #title>Settings</template>
+      </el-menu-item>
+      <el-menu-item style="pointer-events: none;">
+      </el-menu-item>
+      <el-menu-item style="pointer-events: none;">
+      </el-menu-item>
+      <el-menu-item style="pointer-events: none;">
+      </el-menu-item>
+      <el-menu-item style="pointer-events: none;">
+      </el-menu-item>
+      <el-menu-item style="pointer-events: none;">
+      </el-menu-item>
+       <el-menu-item style="pointer-events: none;">
+      </el-menu-item>
+      <el-menu-item index="1" @click="$router.push('Profile')">
+        <el-icon :size="30"><Avatar /></el-icon>
+        <template #title>Profile</template>
       </el-menu-item>
     </el-menu>
     </div>
+  <Transition name="fade" mode="in-out">
   <RouterView :class="`${isCollapse ? 'router-width-collapsed' : 'router-width'}`"/>
+  </Transition>
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif !important;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 main {
   overflow-y: scroll;
 }

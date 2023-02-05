@@ -2,69 +2,61 @@
 <template>
   <main>
     <div
-    v-for="item in items.products"
-    :key="item.id"
-    style="border: 1px solid white;"
+    style="height: 100%;"
     >
-    <div class="flex-row">
-      <div style="border 1px solid white; padding: 1rem;">
-        <img
-        :src="item.images[0]"
-        style="max-height: 14rem; max-width: 18rem;"
-        />
-    </div>
-      <div>
-        <p>{{ item.title }}</p>
-        <p>{{ item.brand }}</p>
-        <p>{{ item.smartphones }}</p>
-        <p>{{ item.description }}</p>
-        <p>${{ item.price }}</p>
-      </div>
-  </div>
+    <!-- <Transition name="fade" mode="in-out"> -->
+      <!-- <el-icon v-if="viewIcon" :size="270" style="margin-top: 5rem;" class="red" id="rect1"><HomeFilled /></el-icon> -->
+      <img :src="home" class="home" style="background-color: red;"/>
+    <!-- </Transition>  -->
+    <Transition name="fade" mode="in-out">
+    <p v-if="viewTitle" style="font-size: 9rem;">Product-Page</p>
+  </Transition> 
   </div>
   </main>
 </template>
 <script>
-import { onMounted } from 'vue';
-import axios from 'axios'
-// { "id": 1, "title": "iPhone 9", "description": "An apple mobile which is nothing like apple", 
-// "price": 549, "discountPercentage": 12.96, "rating": 4.69, "stock": 94, "brand": "Apple",
-// "category": "smartphones", "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-// "images": [ "https://i.dummyjson.com/data/products/1/1.jpg", "https://i.dummyjson.com/data/products/1/2.jpg", "https://i.dummyjson.com/data/products/1/3.jpg", "https://i.dummyjson.com/data/products/1/4.jpg", "https://i.dummyjson.com/data/products/1/thumbnail.jpg" ] }'
-// const MyCard = app.component(Card);
+ import {
+    HomeFilled,
+  } from '@element-plus/icons-vue'
+  import { ref, onMounted } from 'vue'
+  import home from '../assets/home.svg'
 
-export default {
-  // components: {
-  //   // shorthand
-  //   Card,
-  // },
+  export default {
+  components: {
+    HomeFilled,
+  },
   data() {
     return {
-      items: [],
-    };
-  },
-  async created() {
-    try {
-      const res = await axios.get(`https://dummyjson.com/products`);
-      this.items = res.data;
-    } catch (error) {
-      console.log(error);
+      viewIcon: false,
+      viewTitle: false,
+      home
     }
   },
+  mounted() {
+    setTimeout(() => {
+      this.viewIcon = true
+    }, 500);
+    setTimeout(() => {
+      this.viewTitle = true
+    }, 1000);
+  }
 }
-onMounted(() => {
-  el.value // <div>
-})
 
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
-
-* {
-  font-family: 'Comfortaa', 'Avenir', 'Arial', 'sans-serif' !important
+.home {
+  fill: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,51,121,1) 0%, rgba(226,0,255,1) 100%) !important;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 body{
   margin:0 !important;
 }
