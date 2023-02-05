@@ -1,27 +1,7 @@
 
 <template>
   <main>
-    <div
-    v-for="item in items.products"
-    :key="item.id"
-    style="border: 1px solid white;"
-    >
-    <div class="flex-row">
-      <div style="border 1px solid white; padding: 1rem;">
-        <img
-        :src="item.images[0]"
-        style="max-height: 14rem; max-width: 18rem;"
-        />
-    </div>
-      <div>
-        <p>{{ item.title }}</p>
-        <p>{{ item.brand }}</p>
-        <p>{{ item.smartphones }}</p>
-        <p>{{ item.description }}</p>
-        <p>${{ item.price }}</p>
-      </div>
-  </div>
-  </div>
+    da map
   </main>
 </template>
 <script>

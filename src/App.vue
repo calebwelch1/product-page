@@ -23,7 +23,6 @@ import { ref } from 'vue'
       <el-radio-button :label="false">expand</el-radio-button>
       <el-radio-button :label="true">collapse</el-radio-button>
     </el-radio-group> -->
-    <el-switch v-model="isCollapse" />
     <el-menu
       default-active="2"
       class="el-menu-vertical-demo"
@@ -31,7 +30,9 @@ import { ref } from 'vue'
       @open="handleOpen"
       @close="handleClose"
     >
-      <el-menu-item index="1">
+      <!-- this.$router.push('UIPortfolio') -->
+    <el-switch v-model="isCollapse" />
+      <el-menu-item index="1" @click="$router.push('Profile')">
         <el-icon><icon-menu /></el-icon>
         <template #title>Navigator One</template>
       </el-menu-item>
@@ -49,18 +50,33 @@ import { ref } from 'vue'
       </el-menu-item>
     </el-menu>
     </div>
-  <RouterView />
+  <RouterView :class="`${isCollapse ? 'router-width-collapsed' : 'router-width'}`"/>
 </template>
 
 <style scoped>
+main {
+  overflow-y: scroll;
+}
+
+.router-width {
+  width: 86vw;
+  max-width: 86vw;
+}
+
+.router-width-collapsed {
+  width: 95vw;
+  max-width: 95vw;
+}
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
+    width: 14vw;
     min-height: 400px;
+    min-width: 12rem;
     height: 99vh;
   }
 
 .el-menu--collapse {
-  width: 4rem;
+  width: 5vw;
+  min-width: 4rem;
     min-height: 400px;
     height: 99vh;
 }
