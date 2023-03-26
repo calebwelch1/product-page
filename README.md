@@ -1,6 +1,8 @@
 # product-page
 
 Mock Product Page
+https://artispyr.netlify.app/#31948
+https://api.artic.edu/docs/#collections
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
