@@ -76,10 +76,17 @@ import { ref } from 'vue'
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap');
+
+.mulish {
+  font-family: 'Mulish', sans-serif !important;
+}
 
 * {
-  font-family: 'Roboto', sans-serif !important;
+  font-family: 'Roboto', sans-serif;
+  color: white;
 }
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
@@ -102,6 +109,19 @@ main {
 .router-width-collapsed {
   width: 95vw;
   max-width: 95vw;
+}
+
+.el-menu{
+  background: #202124 !important;
+}
+.el-menu-item {
+    color: white !important;
+}
+
+.el-menu-item.is-active {
+    color: white !important;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 14vw;
@@ -177,5 +197,18 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 5px;
 }
 </style>
