@@ -5,9 +5,14 @@
     style="height: 100%;"
     >
     <!-- <Transition name="about"></Transition> -->
-    <Transition name="fade" mode="in-out">
-    <p v-if="viewTitle" style="font-size: 9rem;" class="mulish">MoMA</p>
-  </Transition> 
+    <!-- <Transition name="fade" mode="in-out"> -->
+    <p  style="font-size: 9rem;" class="mulish">MoMA</p>
+    <!-- v-if="viewTitle" -->
+  <!-- </Transition>  -->
+    <div class="search-container">
+        <input type="text" name="q" placeholder="Search MoMA..."   :value="text" @input="event => text = event.target.value">>
+        <button @click="search(val)"><i class="fa fa-search"></i></button>
+    </div>
     <div class="container">
     {{ windowWidth }}
       <div
@@ -52,12 +57,14 @@
       home,
       windowWidth: window.innerWidth,
       columns: 3,
+      imageNum: 10,
       images:[],
+      text:'',
     }
   },
   async created() {
     try {
-      const res = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects`);
+      const res = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${99}`);
       this.images = res.data;
       console.log(res);
     } catch (error) {
@@ -81,7 +88,11 @@
   methods: {  
     onResize() {
       this.windowWidth = window.innerWidth
-    }
+    },
+    async search(val) {
+      const res = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/search?q=${val}`)
+      console.log(res);
+    },
   }
 }
 
@@ -109,6 +120,44 @@
 .mulish {
   font-family: 'Mulish', sans-serif !important;
 }
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.search-container form {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input[type="text"] {
+  width: 550px;
+  padding: 12px 20px;
+  margin-right: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 24px;
+}
+
+.search-container button[type="submit"] {
+  padding: 12px 20px;
+  border: none;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.search-container button[type="submit"]:hover {
+  background-color: #e6e6e6;
+}
+
+.fa-search {
+  color: #666;
+  font-size: 20px;
+}
+
 
 .home {
   fill: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,51,121,1) 0%, rgba(226,0,255,1) 100%) !important;
