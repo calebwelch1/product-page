@@ -33,7 +33,7 @@ import { ref } from 'vue'
       @open="handleOpen"
       @close="handleClose"
     >
-      <!-- this.$router.push('UIPortfolio') -->
+      <!-- this.$router.push('UIPortfolio') test -->
     <el-switch v-model="isCollapse" />
       <el-menu-item index="1" @click="$router.push('/')">
         <el-icon :size="30"><HomeFilled /></el-icon>
