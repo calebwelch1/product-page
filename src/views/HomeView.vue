@@ -7,42 +7,45 @@
     >
     <div class="container">
       <video class="bg-video" autoplay loop>
-        <source src="https://imgur.com/2cSaKIt.mp4" type="video/mp4" />
+        <source :src="Background" type="video/mp4" />
+        <!-- <source src="https://imgur.com/2cSaKIt.mp4" type="video/mp4" /> -->
       </video>
       <p class="text">HOME</p>
     </div>
-    <p
-    style="color:white; font-weight: 500; font-size: 1.25rem;margin-left: 20%; margin-right: 20%;"
+    <div class="product-container"
+  >
+    <div
+    class="product-card"
+    >
+    MoMA
+    </div>
+    <div
+    class="product-card"
+    >
+    SHOP
+    </div>
+  </div>
+  <p
+    style="color:white; font-weight: 500; font-size: 1.25rem;margin-left: 20%; margin-right: 20%; margin-top: 3%;"
     >
     HOME is a collection of projects by Caleb Welch intended to explore and showcase
       modern front end design. <br> This site is under construction so please check back often. <br> 
 
       If you'd like to see my other work connect with me -
     </p>
-    <div class="product-container"
-  >
-    <div
-    class="product-card"
-    >
-    <p>MoMA</p>
-    </div>
-    <div
-    class="product-card"
-    >
-    <p>SHOP</p>
-    </div>
-  </div>
 </div>
   </main>
 </template>
 <script>
   import { ref, onMounted } from 'vue'
+  import Background from '../assets/background.mp4'
   import home from '../assets/home.svg'
   import axios from 'axios'
 
 
   export default {
   components: {
+    Background,
   },
   data() {
     return {
@@ -147,9 +150,9 @@
 .product-container {
       display: flex;
   flex-wrap: wrap;
-  margin-left: 30%;
-  margin-right: 30%;
-
+  margin-left: 15%;
+  margin-right: 15%;
+  gap: 2rem;
     }
     
     .product-card {
@@ -160,6 +163,13 @@
       background-color: #fff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       width: 30vw;
+      color: #000;
+    }
+
+    .product-card:hover {
+      background-color: #202124 !important;
+      border: 1px solid #202124;
+      color: #fff !important;
     }
 
     @media (max-width: 1490px) {
