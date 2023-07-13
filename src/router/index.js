@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import MomaView from '../views/MomaView.vue'
 import MapView from '../views/MapView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import ShopView from '../views/ShopView.vue'
@@ -12,6 +13,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/moma',
+      name: 'moma',
+      component: MomaView
     },
     {
       path: '/map',
