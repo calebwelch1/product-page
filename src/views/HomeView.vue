@@ -7,7 +7,7 @@
     >
     <div class="container">
       <video class="bg-video" autoplay loop>
-        <source :src="Background" type="video/mp4" />
+        <source src="https://player.vimeo.com/video/802032496?title=0&portrait=0&byline=0&autoplay=1&muted=true" type="video/mp4" />
         <!-- <source src="https://imgur.com/2cSaKIt.mp4" type="video/mp4" /> -->
       </video>
       <p class="text">HOME</p>
@@ -38,14 +38,14 @@
 </template>
 <script>
   import { ref, onMounted } from 'vue'
-  import Background from '../assets/background.mp4'
+  // import Background from '../assets/background.mp4'
   import home from '../assets/home.svg'
   import axios from 'axios'
 
 
   export default {
   components: {
-    Background,
+    // Background,
   },
   data() {
     return {
